@@ -1,0 +1,148 @@
+---
+import Upload from "../../assets/tabler-icons/upload.astro";
+import SelectEmploymentModal from "../modal/SelectEmploymentModal.astro";
+import Contract from "../../assets/tabler-icons/contract.astro";
+import X from "../../assets/tabler-icons/x.astro";
+import User from "../../assets/tabler-icons/user.astro";
+import Edit from "../../assets/tabler-icons/edit.astro";
+import ChevronDown from "../../assets/tabler-icons/chevron-down.astro";
+import Trash from "../../assets/tabler-icons/trash.astro";
+import Photo from "../../assets/tabler-icons/photo.astro";
+---
+
+<SelectEmploymentModal />
+<div id="contractSignForm" class="h-full flex-1 flex flex-col justify-between">
+  <div>
+    <div class="ibm-plex-mono-medium">Identity Verification</div>
+    <div class="ibm-plex-mono-regular text-sm mb-3">
+      Please complete your group's identity verification
+    </div>
+    <div class="flex flex-col space-y-3 mb-3">
+      <div
+        class="flex justify-between items-center border rounded-lg p-4 text-[.9em]"
+      >
+        <div class="flex items-center space-x-2">
+          <User />
+          <div class="flex flex-col">
+            <div
+              class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full"
+            >
+              Passport Verified
+            </div>
+
+            <div class="font-medium">Bimo Arief Wicaksana</div>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="p-1 aspect-square rounded-full bg-grey">
+            <Edit className="h-5" />
+          </button>
+        </div>
+      </div>
+
+      <div class="ibm-plex-mono-medium text-[.9em]">
+        Are you traveling with your family?
+      </div>
+      <button
+        id="selectEmploymentButton"
+        class="w-full h-14 text-left px-4 border rounded-lg text-[.9em] flex items-center justify-between"
+      >
+        <div class="flex space-x-2">
+          <User />
+          <div>Yes</div>
+        </div>
+        <ChevronDown />
+      </button>
+    </div>
+    <div class="flex flex-col space-y-3">
+      <div
+        class="flex justify-between items-center border rounded-lg p-4 text-[.9em]"
+      >
+        <div class="flex items-center space-x-2">
+          <User />
+          <div class="flex flex-col">
+            <div
+              class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full"
+            >
+              Passport Verified
+            </div>
+
+            <div class="font-medium">Firas AlMohasen</div>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="p-1 aspect-square rounded-full bg-grey hidden">
+            <Trash className="h-5" />
+          </button>
+          <button class="p-1 aspect-square rounded-full bg-grey">
+            <Edit className="h-5" />
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center border rounded-lg p-4 text-[.9em]"
+      >
+        <div class="flex items-center space-x-2">
+          <User />
+          <div class="flex flex-col">
+            <div
+              class="px-2 py-1 bg-light-orange text-orange font-semibold text-[.8em] w-fit rounded-full"
+            >
+              Need to verify
+            </div>
+            <div class="font-medium">Add Details</div>
+
+            <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+              Please add the details for this person.
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="p-1 aspect-square rounded-full bg-grey">
+            <Trash className="h-5" />
+          </button>
+          <button class="p-1 aspect-square rounded-full bg-grey">
+            <Edit className="h-5" />
+          </button>
+        </div>
+      </div><button class="flex items-center space-x-2">
+        <div
+          class="rounded-full aspect-square flex justify-center items-center bg-light-tosca p-2"
+        >
+          <Upload className="stroke-tosca h-5" />
+        </div>
+        <div class="text-[.9em] text-tosca">Add another bank statement.</div>
+      </button>
+    </div>
+    <div class="relative flex py-5 items-center">
+      <div class="flex-grow border-t border-gray-400"></div>
+      <div class="font-medium text-sm mx-4">Upload Family Card as proof</div>
+      <div class="flex-grow border-t border-gray-400"></div>
+    </div>
+    <div
+      class="justify-between items-center border rounded-lg p-4 text-[.9em] hidden"
+    >
+      <div class="flex items-center space-x-2">
+        <Photo />
+        <div class="font-medium">Family Card.pdf</div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <div>
+          File Size: <span class="font-medium">2MB</span>
+        </div>
+        <button class="p-1 aspect-square rounded-full bg-grey">
+          <X className="h-5" />
+        </button>
+      </div>
+    </div>
+    <button class="w-full p-4 border rounded-lg flex flex-col items-center">
+      <div class="bg-light-tosca p-2 rounded-lg mb-2">
+        <Upload className="stroke-tosca" />
+      </div>
+      <div class="text-[.9em] font-medium">Upload Family Card</div>
+      <div class="text-[.8em] font-light">
+        Make sure every person is included in the family card
+      </div>
+    </button>
+  </div>
+</div>

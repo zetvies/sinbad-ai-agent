@@ -1,0 +1,43 @@
+---
+// Components
+import Layout from "../layouts/Layout.astro";
+import SelectLanguageModal from "../components/modal/SelectLanguageModal.astro";
+
+// Icons
+import World from "../assets/tabler-icons/world.astro";
+---
+
+<Layout title="AI Agent">
+  <div
+    class="w-full min-h-screen bg-cream px-10 py-20 flex flex-col justify-between items-center relative"
+  >
+    <SelectLanguageModal />
+    <div class="ibm-plex-mono-semibold text-dark-green text-[1.5em]">
+      Welcome to the Virtual Office of the Kingdom of Saudi Arabia’s E-Visa
+      Officer.
+    </div>
+    <div class="flex flex-col items-center space-y-2 w-fit">
+      <a
+        href="/"
+        class="ibm-plex-mono-semibold text-dark-green underline text-center"
+      >
+        How to apply for your umrah Visa?
+      </a>
+      <button
+        id="showModalButton"
+        class="flex items-center justify-center bg-white border-2 border-dark-green rounded-full p-3 space-x-1 w-full"
+      >
+        <World className="h-5" />
+        <div class="font-medium">Select Language</div>
+      </button>
+    </div>
+  </div>
+</Layout>
+<script>
+  const showModalButton = document.querySelector("#showModalButton");
+  const selectLanguageModal = document.getElementById("selectLanguageModal");
+
+  showModalButton.addEventListener("click", () => {
+    selectLanguageModal.style.display = "flex";
+  });
+</script>

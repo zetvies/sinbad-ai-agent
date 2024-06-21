@@ -1,0 +1,981 @@
+---
+// Icons
+import XIcon from "../../assets/tabler-icons/x.astro";
+import SearchIcon from "../../assets/tabler-icons/search.astro";
+import CircleCheckIcon from "../../assets/tabler-icons/circle-check.astro";
+
+const countryList = [
+  {
+    english_name: "Afghanistan",
+    name: "افغانستان",
+    country_code: "af",
+  },
+  {
+    english_name: "Albania",
+    name: "Shqipëria",
+    country_code: "al",
+  },
+  {
+    english_name: "Algeria",
+    name: "الجزائر",
+    country_code: "dz",
+  },
+  {
+    english_name: "Andorra",
+    name: "Andorra",
+    country_code: "ad",
+  },
+  {
+    english_name: "Angola",
+    name: "Angola",
+    country_code: "ao",
+  },
+  {
+    english_name: "Antigua and Barbuda",
+    name: "Antigua and Barbuda",
+    country_code: "ag",
+  },
+  {
+    english_name: "Argentina",
+    name: "Argentina",
+    country_code: "ar",
+  },
+  {
+    english_name: "Armenia",
+    name: "Հայաստան",
+    country_code: "am",
+  },
+  {
+    english_name: "Australia",
+    name: "Australia",
+    country_code: "au",
+  },
+  {
+    english_name: "Austria",
+    name: "Österreich",
+    country_code: "at",
+  },
+  {
+    english_name: "Azerbaijan",
+    name: "Azərbaycan",
+    country_code: "az",
+  },
+  {
+    english_name: "Bahamas",
+    name: "Bahamas",
+    country_code: "bs",
+  },
+  {
+    english_name: "Bahrain",
+    name: "البحرين",
+    country_code: "bh",
+  },
+  {
+    english_name: "Bangladesh",
+    name: "বাংলাদেশ",
+    country_code: "bd",
+  },
+  {
+    english_name: "Barbados",
+    name: "Barbados",
+    country_code: "bb",
+  },
+  {
+    english_name: "Belarus",
+    name: "Беларусь",
+    country_code: "by",
+  },
+  {
+    english_name: "Belgium",
+    name: "België",
+    country_code: "be",
+  },
+  {
+    english_name: "Belize",
+    name: "Belize",
+    country_code: "bz",
+  },
+  {
+    english_name: "Benin",
+    name: "Bénin",
+    country_code: "bj",
+  },
+  {
+    english_name: "Bhutan",
+    name: "འབྲུག་ཡུལ",
+    country_code: "bt",
+  },
+  {
+    english_name: "Bolivia",
+    name: "Bolivia",
+    country_code: "bo",
+  },
+  {
+    english_name: "Bosnia and Herzegovina",
+    name: "Bosna i Hercegovina",
+    country_code: "ba",
+  },
+  {
+    english_name: "Botswana",
+    name: "Botswana",
+    country_code: "bw",
+  },
+  {
+    english_name: "Brazil",
+    name: "Brasil",
+    country_code: "br",
+  },
+  {
+    english_name: "Brunei",
+    name: "بروني دارالسلام",
+    country_code: "bn",
+  },
+  {
+    english_name: "Bulgaria",
+    name: "България",
+    country_code: "bg",
+  },
+  {
+    english_name: "Burkina Faso",
+    name: "Burkina Faso",
+    country_code: "bf",
+  },
+  {
+    english_name: "Burundi",
+    name: "Burundi",
+    country_code: "bi",
+  },
+  {
+    english_name: "Cabo Verde",
+    name: "Cabo Verde",
+    country_code: "cv",
+  },
+  {
+    english_name: "Cambodia",
+    name: "កម្ពុជា",
+    country_code: "kh",
+  },
+  {
+    english_name: "Cameroon",
+    name: "Cameroun",
+    country_code: "cm",
+  },
+  {
+    english_name: "Canada",
+    name: "Canada",
+    country_code: "ca",
+  },
+  {
+    english_name: "Central African Republic",
+    name: "République centrafricaine",
+    country_code: "cf",
+  },
+  {
+    english_name: "Chad",
+    name: "تشاد",
+    country_code: "td",
+  },
+  {
+    english_name: "Chile",
+    name: "Chile",
+    country_code: "cl",
+  },
+  {
+    english_name: "China",
+    name: "中国",
+    country_code: "cn",
+  },
+  {
+    english_name: "Colombia",
+    name: "Colombia",
+    country_code: "co",
+  },
+  {
+    english_name: "Comoros",
+    name: "جزر القمر",
+    country_code: "km",
+  },
+  {
+    english_name: "Congo (Congo-Brazzaville)",
+    name: "Congo",
+    country_code: "cg",
+  },
+  {
+    english_name: "Costa Rica",
+    name: "Costa Rica",
+    country_code: "cr",
+  },
+  {
+    english_name: "Croatia",
+    name: "Hrvatska",
+    country_code: "hr",
+  },
+  {
+    english_name: "Cuba",
+    name: "Cuba",
+    country_code: "cu",
+  },
+  {
+    english_name: "Cyprus",
+    name: "Κύπρος",
+    country_code: "cy",
+  },
+  {
+    english_name: "Czechia",
+    name: "Česko",
+    country_code: "cz",
+  },
+  {
+    english_name: "Democratic Republic of the Congo",
+    name: "République démocratique du Congo",
+    country_code: "cd",
+  },
+  {
+    english_name: "Denmark",
+    name: "Danmark",
+    country_code: "dk",
+  },
+  {
+    english_name: "Djibouti",
+    name: "Djibouti",
+    country_code: "dj",
+  },
+  {
+    english_name: "Dominica",
+    name: "Dominica",
+    country_code: "dm",
+  },
+  {
+    english_name: "Dominican Republic",
+    name: "República Dominicana",
+    country_code: "do",
+  },
+  {
+    english_name: "Ecuador",
+    name: "Ecuador",
+    country_code: "ec",
+  },
+  {
+    english_name: "Egypt",
+    name: "مصر",
+    country_code: "eg",
+  },
+  {
+    english_name: "El Salvador",
+    name: "El Salvador",
+    country_code: "sv",
+  },
+  {
+    english_name: "Equatorial Guinea",
+    name: "Guinea Ecuatorial",
+    country_code: "gq",
+  },
+  {
+    english_name: "Eritrea",
+    name: "ኤርትራ",
+    country_code: "er",
+  },
+  {
+    english_name: "Estonia",
+    name: "Eesti",
+    country_code: "ee",
+  },
+  {
+    english_name: "Eswatini",
+    name: "Eswatini",
+    country_code: "sz",
+  },
+  {
+    english_name: "Ethiopia",
+    name: "ኢትዮጵያ",
+    country_code: "et",
+  },
+  {
+    english_name: "Fiji",
+    name: "Fiji",
+    country_code: "fj",
+  },
+  {
+    english_name: "Finland",
+    name: "Suomi",
+    country_code: "fi",
+  },
+  {
+    english_name: "France",
+    name: "France",
+    country_code: "fr",
+  },
+  {
+    english_name: "Gabon",
+    name: "Gabon",
+    country_code: "ga",
+  },
+  {
+    english_name: "Gambia",
+    name: "The Gambia",
+    country_code: "gm",
+  },
+  {
+    english_name: "Georgia",
+    name: "საქართველო",
+    country_code: "ge",
+  },
+  {
+    english_name: "Germany",
+    name: "Deutschland",
+    country_code: "de",
+  },
+  {
+    english_name: "Ghana",
+    name: "Ghana",
+    country_code: "gh",
+  },
+  {
+    english_name: "Greece",
+    name: "Ελλάδα",
+    country_code: "gr",
+  },
+  {
+    english_name: "Grenada",
+    name: "Grenada",
+    country_code: "gd",
+  },
+  {
+    english_name: "Guatemala",
+    name: "Guatemala",
+    country_code: "gt",
+  },
+  {
+    english_name: "Guinea",
+    name: "Guinée",
+    country_code: "gn",
+  },
+  {
+    english_name: "Guinea-Bissau",
+    name: "Guiné-Bissau",
+    country_code: "gw",
+  },
+  {
+    english_name: "Guyana",
+    name: "Guyana",
+    country_code: "gy",
+  },
+  {
+    english_name: "Haiti",
+    name: "Haïti",
+    country_code: "ht",
+  },
+  {
+    english_name: "Honduras",
+    name: "Honduras",
+    country_code: "hn",
+  },
+  {
+    english_name: "Hungary",
+    name: "Magyarország",
+    country_code: "hu",
+  },
+  {
+    english_name: "Iceland",
+    name: "Ísland",
+    country_code: "is",
+  },
+  {
+    english_name: "India",
+    name: "भारत",
+    country_code: "in",
+  },
+  {
+    english_name: "Indonesia",
+    name: "Indonesia",
+    country_code: "id",
+  },
+  {
+    english_name: "Iran",
+    name: "ایران",
+    country_code: "ir",
+  },
+  {
+    english_name: "Iraq",
+    name: "العراق",
+    country_code: "iq",
+  },
+  {
+    english_name: "Ireland",
+    name: "Éire",
+    country_code: "ie",
+  },
+  {
+    english_name: "Israel",
+    name: "יִשְׂרָאֵל",
+    country_code: "il",
+  },
+  {
+    english_name: "Italy",
+    name: "Italia",
+    country_code: "it",
+  },
+  {
+    english_name: "Jamaica",
+    name: "Jamaica",
+    country_code: "jm",
+  },
+  {
+    english_name: "Japan",
+    name: "日本",
+    country_code: "jp",
+  },
+  {
+    english_name: "Jordan",
+    name: "الأردن",
+    country_code: "jo",
+  },
+  {
+    english_name: "Kazakhstan",
+    name: "Қазақстан",
+    country_code: "kz",
+  },
+  {
+    english_name: "Kenya",
+    name: "Kenya",
+    country_code: "ke",
+  },
+  {
+    english_name: "Kiribati",
+    name: "Kiribati",
+    country_code: "ki",
+  },
+  {
+    english_name: "Kuwait",
+    name: "الكويت",
+    country_code: "kw",
+  },
+  {
+    english_name: "Kyrgyzstan",
+    name: "Кыргызстан",
+    country_code: "kg",
+  },
+  {
+    english_name: "Laos",
+    name: "ປະເທດລາວ",
+    country_code: "la",
+  },
+  {
+    english_name: "Latvia",
+    name: "Latvija",
+    country_code: "lv",
+  },
+  {
+    english_name: "Lebanon",
+    name: "لبنان",
+    country_code: "lb",
+  },
+  {
+    english_name: "Lesotho",
+    name: "Lesotho",
+    country_code: "ls",
+  },
+  {
+    english_name: "Liberia",
+    name: "Liberia",
+    country_code: "lr",
+  },
+  {
+    english_name: "Libya",
+    name: "ليبيا",
+    country_code: "ly",
+  },
+  {
+    english_name: "Liechtenstein",
+    name: "Liechtenstein",
+    country_code: "li",
+  },
+  {
+    english_name: "Lithuania",
+    name: "Lietuva",
+    country_code: "lt",
+  },
+  {
+    english_name: "Luxembourg",
+    name: "Lëtzebuerg",
+    country_code: "lu",
+  },
+  {
+    english_name: "Madagascar",
+    name: "Madagasikara",
+    country_code: "mg",
+  },
+  {
+    english_name: "Malawi",
+    name: "Malawi",
+    country_code: "mw",
+  },
+  {
+    english_name: "Malaysia",
+    name: "Malaysia",
+    country_code: "my",
+  },
+  {
+    english_name: "Maldives",
+    name: "Maldives",
+    country_code: "mv",
+  },
+  {
+    english_name: "Mali",
+    name: "Mali",
+    country_code: "ml",
+  },
+  {
+    english_name: "Malta",
+    name: "Malta",
+    country_code: "mt",
+  },
+  {
+    english_name: "Marshall Islands",
+    name: "Marshall Islands",
+    country_code: "mh",
+  },
+  {
+    english_name: "Mauritania",
+    name: "موريتانيا",
+    country_code: "mr",
+  },
+  {
+    english_name: "Mauritius",
+    name: "Mauritius",
+    country_code: "mu",
+  },
+  {
+    english_name: "Mexico",
+    name: "México",
+    country_code: "mx",
+  },
+  {
+    english_name: "Micronesia",
+    name: "Micronesia",
+    country_code: "fm",
+  },
+  {
+    english_name: "Moldova",
+    name: "Moldova",
+    country_code: "md",
+  },
+  {
+    english_name: "Monaco",
+    name: "Monaco",
+    country_code: "mc",
+  },
+  {
+    english_name: "Mongolia",
+    name: "Монгол",
+    country_code: "mn",
+  },
+  {
+    english_name: "Montenegro",
+    name: "Црна Гора",
+    country_code: "me",
+  },
+  {
+    english_name: "Morocco",
+    name: "المغرب",
+    country_code: "ma",
+  },
+  {
+    english_name: "Mozambique",
+    name: "Moçambique",
+    country_code: "mz",
+  },
+  {
+    english_name: "Myanmar",
+    name: "မြန်မာ",
+    country_code: "mm",
+  },
+  {
+    english_name: "Namibia",
+    name: "Namibia",
+    country_code: "na",
+  },
+  {
+    english_name: "Nauru",
+    name: "Nauru",
+    country_code: "nr",
+  },
+  {
+    english_name: "Nepal",
+    name: "नेपाल",
+    country_code: "np",
+  },
+  {
+    english_name: "Netherlands",
+    name: "Nederland",
+    country_code: "nl",
+  },
+  {
+    english_name: "New Zealand",
+    name: "New Zealand",
+    country_code: "nz",
+  },
+  {
+    english_name: "Nicaragua",
+    name: "Nicaragua",
+    country_code: "ni",
+  },
+  {
+    english_name: "Niger",
+    name: "Niger",
+    country_code: "ne",
+  },
+  {
+    english_name: "Nigeria",
+    name: "Nigeria",
+    country_code: "ng",
+  },
+  {
+    english_name: "North Korea",
+    name: "조선민주주의인민공화국",
+    country_code: "kp",
+  },
+  {
+    english_name: "North Macedonia",
+    name: "Северна Македонија",
+    country_code: "mk",
+  },
+  {
+    english_name: "Norway",
+    name: "Norge",
+    country_code: "no",
+  },
+  {
+    english_name: "Oman",
+    name: "عمان",
+    country_code: "om",
+  },
+  {
+    english_name: "Pakistan",
+    name: "پاکستان",
+    country_code: "pk",
+  },
+  {
+    english_name: "Palau",
+    name: "Palau",
+    country_code: "pw",
+  },
+  {
+    english_name: "Palestine",
+    name: "فلسطين",
+    country_code: "ps",
+  },
+  {
+    english_name: "Panama",
+    name: "Panamá",
+    country_code: "pa",
+  },
+  {
+    english_name: "Papua New Guinea",
+    name: "Papua New Guinea",
+    country_code: "pg",
+  },
+  {
+    english_name: "Paraguay",
+    name: "Paraguay",
+    country_code: "py",
+  },
+  {
+    english_name: "Peru",
+    name: "Perú",
+    country_code: "pe",
+  },
+  {
+    english_name: "Philippines",
+    name: "Pilipinas",
+    country_code: "ph",
+  },
+  {
+    english_name: "Poland",
+    name: "Polska",
+    country_code: "pl",
+  },
+  {
+    english_name: "Portugal",
+    name: "Portugal",
+    country_code: "pt",
+  },
+  {
+    english_name: "Qatar",
+    name: "قطر",
+    country_code: "qa",
+  },
+  {
+    english_name: "Romania",
+    name: "România",
+    country_code: "ro",
+  },
+  {
+    english_name: "Russia",
+    name: "Россия",
+    country_code: "ru",
+  },
+  {
+    english_name: "Rwanda",
+    name: "Rwanda",
+    country_code: "rw",
+  },
+  {
+    english_name: "Saint Kitts and Nevis",
+    name: "Saint Kitts and Nevis",
+    country_code: "kn",
+  },
+  {
+    english_name: "Saint Lucia",
+    name: "Saint Lucia",
+    country_code: "lc",
+  },
+  {
+    english_name: "Saint Vincent and the Grenadines",
+    name: "Saint Vincent and the Grenadines",
+    country_code: "vc",
+  },
+  {
+    english_name: "Samoa",
+    name: "Samoa",
+    country_code: "ws",
+  },
+  {
+    english_name: "San Marino",
+    name: "San Marino",
+    country_code: "sm",
+  },
+  {
+    english_name: "Sao Tome and Principe",
+    name: "São Tomé e Príncipe",
+    country_code: "st",
+  },
+  {
+    english_name: "Saudi Arabia",
+    name: "السعودية",
+    country_code: "sa",
+  },
+  {
+    english_name: "Senegal",
+    name: "Sénégal",
+    country_code: "sn",
+  },
+  {
+    english_name: "Serbia",
+    name: "Србија",
+    country_code: "rs",
+  },
+  {
+    english_name: "Seychelles",
+    name: "Seychelles",
+    country_code: "sc",
+  },
+  {
+    english_name: "Sierra Leone",
+    name: "Sierra Leone",
+    country_code: "sl",
+  },
+  {
+    english_name: "Singapore",
+    name: "Singapore",
+    country_code: "sg",
+  },
+  {
+    english_name: "Slovakia",
+    name: "Slovensko",
+    country_code: "sk",
+  },
+  {
+    english_name: "Slovenia",
+    name: "Slovenija",
+    country_code: "si",
+  },
+  {
+    english_name: "Solomon Islands",
+    name: "Solomon Islands",
+    country_code: "sb",
+  },
+  {
+    english_name: "Somalia",
+    name: "Soomaaliya",
+    country_code: "so",
+  },
+  {
+    english_name: "South Africa",
+    name: "South Africa",
+    country_code: "za",
+  },
+  {
+    english_name: "South Korea",
+    name: "대한민국",
+    country_code: "kr",
+  },
+  {
+    english_name: "South Sudan",
+    name: "South Sudan",
+    country_code: "ss",
+  },
+  {
+    english_name: "Spain",
+    name: "España",
+    country_code: "es",
+  },
+  {
+    english_name: "Sri Lanka",
+    name: "ශ්‍රී ලංකාව",
+    country_code: "lk",
+  },
+  {
+    english_name: "Sudan",
+    name: "السودان",
+    country_code: "sd",
+  },
+  {
+    english_name: "Suriname",
+    name: "Suriname",
+    country_code: "sr",
+  },
+  {
+    english_name: "Sweden",
+    name: "Sverige",
+    country_code: "se",
+  },
+  {
+    english_name: "Switzerland",
+    name: "Schweiz",
+    country_code: "ch",
+  },
+  {
+    english_name: "Syria",
+    name: "سوريا",
+    country_code: "sy",
+  },
+  {
+    english_name: "Taiwan",
+    name: "台灣",
+    country_code: "tw",
+  },
+  {
+    english_name: "Tajikistan",
+    name: "Тоҷикистон",
+    country_code: "tj",
+  },
+  {
+    english_name: "Tanzania",
+    name: "Tanzania",
+    country_code: "tz",
+  },
+  {
+    english_name: "Thailand",
+    name: "ประเทศไทย",
+    country_code: "th",
+  },
+];
+---
+
+<div
+  id="selectNationalityModal"
+  class={`hidden absolute top-0 left-0 w-full min-h-screen z-50`}
+>
+  <button
+    id="closeModalButton"
+    class="absolute top-0 left-0 w-full h-full z-11 bg-transparent-black"
+  ></button>
+  <div
+    class="absolute bottom-0 left-0 w-full min-h-[50svh] h-fit p-4 z-12 bg-white"
+  >
+    <div class="flex items-center justify-between mb-3">
+      <div class="ibm-plex-mono-semibold">Select Nationality</div>
+      <button id="closeModalButton" class="p-1 z-12 rounded-full bg-grey">
+        <XIcon className="h-5" />
+      </button>
+    </div>
+    <div class="flex flex-col">
+      <form class="w-full">
+        <div class="relative">
+          <div
+            class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+          >
+            <SearchIcon className="h-5" />
+          </div>
+          <input
+            type="search"
+            id="default-search"
+            class="block w-full px-4 py-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none"
+            placeholder="Search your country here.."
+          />
+        </div>
+      </form>
+      <div class="flex-1 my-2 min-h-[40svh] max-h-[40svh] overflow-auto">
+        {
+          countryList.map((lang) => (
+            <button
+              id={lang.english_name}
+              class="selectNationalityButton flex items-center space-x-2 w-full p-2 hover:bg-white-100"
+            >
+              <div
+                class={`flag-${lang.country_code} w-7 h-fit flex items-center emoji text-[1.1em]`}
+              />
+              <div class="ibm-plex-mono-regular text-[.9em]">{lang.name}</div>
+
+              <CircleCheckIcon
+                id={`nationalityCheck-${lang.english_name}`}
+                className={`nationalityCheck hidden h-5 fill-dark-green`}
+              />
+            </button>
+          ))
+        }
+      </div>
+      <a href="/agent">
+        <button
+          disabled
+          id="submitNationalityButton"
+          class="w-full bg-gray-100 p-2 rounded-full text-gray-400 text-[.9em]"
+        >
+          Select
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+  // Close the modal
+  const closeModalButtons = document.querySelectorAll("#closeModalButton");
+  const selectNationalityModal = document.getElementById(
+    "selectNationalityModal"
+  );
+
+  closeModalButtons.forEach((e) => {
+    e.addEventListener("click", () => {
+      selectNationalityModal.style.display = "none";
+    });
+  });
+
+  // Select Nationality
+  const selectNationalityButtons = document.querySelectorAll(
+    ".selectNationalityButton"
+  );
+  const submitButton = document.getElementById(
+    "submitNationalityButton"
+  ) as HTMLButtonElement;
+  let selectedNationality = "";
+  selectNationalityButtons.forEach((e) => {
+    e.addEventListener("click", () => {
+      // Hide previously checked Nationality if exists, and show recently selected.
+      if (selectedNationality) {
+        const previousCheck = document.getElementById(
+          "nationalityCheck-" + selectedNationality
+        );
+        previousCheck.style.display = "none";
+      }
+      const currentCheck = document.getElementById("nationalityCheck-" + e.id);
+      currentCheck.style.display = "block";
+      selectedNationality = e.id;
+
+      // Allow submit once Nationality is selected
+      submitButton.disabled = false;
+      submitButton.className =
+        "w-full bg-dark-green p-2 rounded-full text-white text-[.9em]";
+    });
+  });
+</script>

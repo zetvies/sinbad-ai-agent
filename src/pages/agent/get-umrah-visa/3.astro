@@ -1,0 +1,105 @@
+---
+// Components
+import Layout from "../../../layouts/Layout.astro";
+import AIAgent from "../../../components/AIAgent.astro";
+import AgentOptionScreen from "../../../components/screen/AgentOption.astro";
+import GetUmrahVisaScreen from "../../../components/screen/GetUmrahVisa.astro";
+import SelectLanguageModal from "../../../components/modal/SelectLanguageModal.astro";
+import EmploymentVerification from "../../../components/form/EmploymentVerification.astro";
+import PersonalDetails from "../../../components/form/PersonalDetails.astro";
+import User from "../../../assets/tabler-icons/user.astro";
+import VisaDetailsForm from "../../../components/form/VisaDetailsForm.astro";
+import VerificationForm from "../../../components/form/VerificationForm.astro";
+---
+
+<Layout title="AI Agent">
+  <SelectLanguageModal />
+  <AIAgent text="What brings you here today?" />
+  <button
+    id="selectLanguageButton"
+    class="absolute top-6 right-6 flex items-center space-x-1 px-3 py-1 bg-white rounded-full border border-dark-green hover:bg-white-100"
+  >
+    <div class={`flag-gb w-7 h-fit flex items-center emoji text-[1.1em]`}></div>
+    <div class="text-[.9em] uppercase font-medium">Eng</div>
+  </button>
+  <div class="h-[65svh] w-full flex-1 flex flex-col overflow-y-auto p-4">
+    <!-- <AgentOptionScreen /> -->
+
+    <div
+      id="getUmrahVisaScreen"
+      class="flex-1 h-screen w-full flex flex-col mb-24"
+    >
+      <div class="flex items-center w-full space-x-4 mb-4">
+        <div
+          class="min-w-14 min-h-14 flex items-center justify-center bg-grey rounded-lg"
+        >
+          <User className="h-10" />
+        </div>
+        <div class="w-full flex flex-col space-y-1">
+          <div class="text-[.9em]">
+            Step 3: <span class="font-medium">Data Verification</span>
+          </div>
+          <div class="flex space-x-1 w-full">
+            <div id="1" class="bg-green h-3 flex-1 rounded-full"></div>
+            <div id="2" class="bg-green h-3 flex-1 rounded-full"></div>
+            <div id="3" class="bg-green h-3 flex-1 rounded-full"></div>
+            <div id="4" class="bg-light-green h-3 flex-1 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col">
+        <!-- <PersonalDetails /> -->
+        <!-- <VisaDetailsForm /> -->
+        <!-- <ContractForm /> -->
+        <!-- <ContractSignForm /> -->
+        <VerificationForm />
+
+        <!-- <EmploymentVerification /> -->
+        <!-- <IncomeVerification /> -->
+        <!-- <IdentityVerification /> -->
+        <!-- <TravelHistoryVerification /> -->
+        <!-- <DebitCreditCardVerification /> -->
+        <!-- <UtilityBillsVerification /> -->
+        <!-- <SupportingDocumentVerification /> -->
+      </div>
+
+      <div
+        class="absolute bottom-0 left-0 flex items-center w-full px-4 h-20 space-x-2 bg-white"
+      >
+        <a href="/agent/get-umrah-visa/3" class="flex-1">
+          <button
+            id="prevButton"
+            class="w-full bg-grey rounded-full flex font-medium text-gray-400 justify-center items-center p-3"
+          >
+            Back
+          </button>
+        </a>
+
+        <a href="/agent/get-umrah-visa/4" class="flex-1">
+          <button
+            id="nextButton"
+            disabled={false}
+            class={true
+              ? `w-full  bg-dark-green rounded-full flex font-medium text-white border-2 border-white justify-center items-center p-3`
+              : `w-full  bg-grey rounded-full flex font-medium text-gray-400 border-2 border-gray-300 justify-center items-center p-3`}
+          >
+            Next
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const selectLanguageButton = document.querySelector("#selectLanguageButton");
+  const selectLanguageModal = document.getElementById("selectLanguageModal");
+
+  const step = 1;
+  const nextButton = document.querySelector("#nextButton");
+  const prevButton = document.querySelector("#prevButton");
+
+  selectLanguageButton.addEventListener("click", () => {
+    selectLanguageModal.style.display = "flex";
+  });
+</script>

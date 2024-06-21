@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+
+import AIDialog from "../components/AIDialog.astro";
+
+const { text } = Astro.props;
+---
+
+<div class="w-full h-[35svh] bg-cream flex justify-center pt-[8svh] relative">
+  <Image
+    height={500}
+    width={500}
+    class="object-contain"
+    src="/assets/image/Ahmad.png"
+    alt="Ahmad"
+  />
+  <AIDialog text={text} />
+</div>

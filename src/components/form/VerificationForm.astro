@@ -1,0 +1,250 @@
+---
+import ArrowRightIcon from "../../assets/tabler-icons/arrow-right.astro";
+import Bolt from "../../assets/tabler-icons/bolt.astro";
+import Cash from "../../assets/tabler-icons/cash.astro";
+import CheckIcon from "../../assets/tabler-icons/check.astro";
+import ContractIcon from "../../assets/tabler-icons/contract.astro";
+import CreditCard from "../../assets/tabler-icons/credit-card.astro";
+import DownloadIcon from "../../assets/tabler-icons/download.astro";
+import Friends from "../../assets/tabler-icons/friends.astro";
+import Paperclip from "../../assets/tabler-icons/paperclip.astro";
+import PlaneDeparture from "../../assets/tabler-icons/plane-departure.astro";
+---
+
+<div id="contractSignForm" class="h-full flex-1 flex flex-col pb-24">
+  <div class="ibm-plex-mono-medium">Data Verification</div>
+  <div class="ibm-plex-mono-regular text-sm mb-3">
+    Please complete these verifications.
+  </div>
+  <div class="flex flex-col space-y-2">
+    <div
+      class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between min-h-24"
+    >
+      <div class="flex items-center space-x-2">
+        <ContractIcon />
+        <div class="flex flex-col">
+          <div
+            class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full"
+          >
+            Verified
+          </div>
+          <div class="font-medium">
+            Employment Verification<span class="text-red-500">*</span>
+          </div>
+          <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+            The information has been verified.
+          </div>
+        </div>
+      </div>
+      <div class="bg-light-tosca rounded-full p-2 hidden">
+        <CheckIcon className="stroke-tosca" />
+      </div>
+      <a href="/agent/get-umrah-visa/3/employment">
+        <button class="bg-light-tosca rounded-full p-2">
+          <ArrowRightIcon className="stroke-tosca" />
+        </button>
+      </a>
+    </div>
+
+    <div
+      class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between min-h-24"
+    >
+      <div class="flex items-center space-x-2">
+        <Cash />
+        <div class="flex flex-col">
+          <div
+            class={`px-2 py-1 ${true ? "bg-light-orange text-orange" : "bg-light-tosca text-tosca"} font-semibold text-[.8em] w-fit rounded-full`}
+          >
+            Under Review
+          </div>
+          <div class="font-medium">
+            Income Verification<span class="text-red-500">*</span>
+          </div>
+          <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+            Upload your bank transaction of the last 3 months.
+          </div>
+        </div>
+      </div>
+      <div class="bg-light-tosca rounded-full p-2 hidden">
+        <CheckIcon className="stroke-tosca" />
+      </div>
+
+      <a href="/agent/get-umrah-visa/3/income">
+        <button
+          class={true
+            ? `bg-light-orange rounded-full p-2`
+            : `bg-light-cream rounded-full p-2`}
+        >
+          <ArrowRightIcon className={true ? `stroke-orange` : `stroke-black`} />
+        </button>
+      </a>
+    </div>
+
+    <div
+      class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between min-h-24"
+    >
+      <div class="flex items-center space-x-2">
+        <Friends />
+        <div class="flex flex-col">
+          <div
+            class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full hidden"
+          >
+            Verified
+          </div>
+          <div class="font-medium">
+            Group Size & Identity Verification
+            <span class="text-red-500">*</span>
+          </div>
+          <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+            Need your passport and mobile camera
+          </div>
+        </div>
+      </div>
+      <div class="bg-light-tosca rounded-full p-2 hidden">
+        <CheckIcon className="stroke-tosca" />
+      </div>
+
+      <a href="/agent/get-umrah-visa/3/identity">
+        <button
+          class={false
+            ? `bg-light-orange rounded-full p-2`
+            : `bg-light-cream rounded-full p-2`}
+        >
+          <ArrowRightIcon
+            className={false ? `stroke-orange` : `stroke-black`}
+          />
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="ibm-plex-mono-medium mt-4">Optional</div>
+  <div class="ibm-plex-mono-regular text-sm mb-3">
+    You can submit this optional verifications for more credibility.
+  </div>
+  <div class="flex flex-col space-y-2">
+    <div
+      class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between min-h-24"
+    >
+      <div class="flex items-center space-x-2">
+        <PlaneDeparture />
+        <div class="flex flex-col">
+          <div
+            class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full hidden"
+          >
+            Verified
+          </div>
+          <div class="font-medium">Travel History</div>
+          <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+            If you have traveled anywhere
+          </div>
+        </div>
+      </div>
+      <div class="bg-light-tosca rounded-full p-2 hidden">
+        <CheckIcon className="stroke-tosca" />
+      </div>
+      <a href="/agent/get-umrah-visa/3/travel">
+        <button
+          class={false
+            ? `bg-light-orange rounded-full p-2`
+            : `bg-light-cream rounded-full p-2`}
+        >
+          <ArrowRightIcon
+            className={false ? `stroke-orange` : `stroke-black`}
+          />
+        </button>
+      </a>
+    </div>
+    <div
+      class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between min-h-24"
+    >
+      <div class="flex items-center space-x-2">
+        <CreditCard />
+        <div class="flex flex-col">
+          <div
+            class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full hidden"
+          >
+            Verified
+          </div>
+          <div class="font-medium">Debit/Credit Card Verification</div>
+          <div class="text-[rgb(0,0,0,.4)] text-[.9em]">Verify your card</div>
+        </div>
+      </div>
+      <div class="bg-light-tosca rounded-full p-2 hidden">
+        <CheckIcon className="stroke-tosca" />
+      </div>
+      <a href="/agent/get-umrah-visa/3/credit-card">
+        <button
+          class={false
+            ? `bg-light-orange rounded-full p-2`
+            : `bg-light-cream rounded-full p-2`}
+        >
+          <ArrowRightIcon
+            className={false ? `stroke-orange` : `stroke-black`}
+          />
+        </button>
+      </a>
+    </div>
+    <div
+      class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between min-h-24"
+    >
+      <div class="flex items-center space-x-2">
+        <Bolt />
+        <div class="flex flex-col">
+          <div
+            class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full hidden"
+          >
+            Verified
+          </div>
+          <div class="font-medium">Utility Bill</div>
+          <div class="text-[rgb(0,0,0,.4)] text-[.9em]">Verify your card</div>
+        </div>
+      </div>
+      <div class="bg-light-tosca rounded-full p-2 hidden">
+        <CheckIcon className="stroke-tosca" />
+      </div>
+      <a href="/agent/get-umrah-visa/3/utility">
+        <button
+          class={false
+            ? `bg-light-orange rounded-full p-2`
+            : `bg-light-cream rounded-full p-2`}
+        >
+          <ArrowRightIcon
+            className={false ? `stroke-orange` : `stroke-black`}
+          />
+        </button>
+      </a>
+    </div>
+    <div
+      class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between min-h-24"
+    >
+      <div class="flex items-center space-x-2">
+        <Paperclip />
+        <div class="flex flex-col">
+          <div
+            class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full hidden"
+          >
+            Verified
+          </div>
+          <div class="font-medium">Supporting Documents</div>
+          <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+            Any supporting documents that you want to share.
+          </div>
+        </div>
+      </div>
+      <div class="bg-light-tosca rounded-full p-2 hidden">
+        <CheckIcon className="stroke-tosca" />
+      </div>
+      <a href="/agent/get-umrah-visa/3/supporting">
+        <button
+          class={false
+            ? `bg-light-orange rounded-full p-2`
+            : `bg-light-cream rounded-full p-2`}
+        >
+          <ArrowRightIcon
+            className={false ? `stroke-orange` : `stroke-black`}
+          />
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

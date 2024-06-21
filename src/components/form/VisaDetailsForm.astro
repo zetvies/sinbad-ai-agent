@@ -1,0 +1,62 @@
+---
+// Components
+import SelectNationalityModal from "../../components/modal/SelectNationalityModal.astro";
+import SelectGenderModal from "../../components/modal/SelectGenderModal.astro";
+import CalendarWeekIcon from "../../assets/tabler-icons/calendar-week.astro";
+---
+
+<div id="visaDetailsForm" class="h-full flex-1 flex flex-col">
+  <SelectNationalityModal />
+  <SelectGenderModal />
+  <div class="ibm-plex-mono-medium mb-3">Select your Visa Dates</div>
+  <div class="flex flex-col space-y-3 flex-1">
+    <button
+      class="w-full h-14 text-left pl-4 border rounded-lg text-[.9em] flex items-center justify-between"
+    >
+      <CalendarWeekIcon />
+      <input
+        type="date"
+        class="pl-2 flex-1 text-gray-900 rounded-lg focus:outline-none block w-full h-full"
+        placeholder="Select date"
+      />
+    </button>
+  </div>
+
+  <div class="text-[.9em] text-center">
+    The Umrah Visa is a standard 90 day visit visa. Given your selected dates,
+    you have until <span class="font-semibold">16 April 2024</span>.
+  </div>
+</div>
+<script>
+  const selectNationalityButton = document.getElementById(
+    "selectNationalityButton"
+  );
+  const selectNationalityModal = document.getElementById(
+    "selectNationalityModal"
+  );
+
+  const selectGenderButton = document.querySelector("#selectGenderButton");
+  const selectGenderModal = document.getElementById("selectGenderModal");
+
+  selectNationalityButton.addEventListener("click", () => {
+    selectNationalityModal.style.display = "flex";
+  });
+
+  selectGenderButton.addEventListener("click", () => {
+    selectGenderModal.style.display = "flex";
+  });
+</script>
+<style>
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url("/assets/image/ChevronDown.svg") no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    border-width: thin;
+    right: 32px;
+  }
+</style>

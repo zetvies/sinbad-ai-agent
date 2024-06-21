@@ -1,0 +1,120 @@
+---
+// Icons
+import WorldIcon from "../../assets/tabler-icons/world.astro";
+import CalculatorIcon from "../../assets/tabler-icons/calculator.astro";
+import HeartHandshakeIcon from "../../assets/tabler-icons/heart-handshake.astro";
+import ArrowRight from "../../assets/tabler-icons/arrow-right.astro";
+---
+
+<div
+  id="agentOptionScreen"
+  class="flex-1 w-full flex flex-col justify-between mb-24"
+>
+  <div class="flex flex-col">
+    <div class="ibm-plex-mono-medium">Partnership Hub</div>
+    <div class="ibm-plex-mono-regular text-sm mb-3">
+      Connect and partner with us!
+    </div>
+    <div class="flex flex-col space-y-3">
+      <div
+        class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between"
+      >
+        <div class="flex items-center space-x-2 mr-4">
+          <div class="flex flex-col">
+            <div class="font-medium">Data Partner</div>
+            <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+              Do you have data that can support our assessment? Any data can be
+              valuable!
+            </div>
+          </div>
+        </div>
+        <a href="/partnership/data">
+          <button
+            class={false
+              ? `bg-light-orange rounded-full p-2 flex-1`
+              : `bg-light-cream rounded-full p-2 flex-1`}
+          >
+            <ArrowRight className={false ? `stroke-orange` : `stroke-black`} />
+          </button>
+        </a>
+      </div>
+      <div
+        class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between"
+      >
+        <div class="flex items-center space-x-2 mr-4">
+          <div class="flex flex-col">
+            <div class="font-medium">Employer</div>
+            <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+              Are you an employer who wants to give benefits of ease to your
+              employees?
+            </div>
+          </div>
+        </div>
+        <a href="/partnership/employer">
+          <button
+            class={false
+              ? `bg-light-orange rounded-full p-2 flex-1`
+              : `bg-light-cream rounded-full p-2 flex-1`}
+          >
+            <ArrowRight className={false ? `stroke-orange` : `stroke-black`} />
+          </button>
+        </a>
+      </div>
+
+      <div
+        class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between"
+      >
+        <div class="flex items-center space-x-2 mr-4">
+          <div class="flex flex-col">
+            <div class="font-medium">Banking Partner</div>
+            <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+              Are you an financial institution who wants to increase the number
+              of use?
+            </div>
+          </div>
+        </div>
+        <a href="/partnership/banking">
+          <button
+            class={false
+              ? `bg-light-orange rounded-full p-2 flex-1`
+              : `bg-light-cream rounded-full p-2 flex-1`}
+          >
+            <ArrowRight className={false ? `stroke-orange` : `stroke-black`} />
+          </button>
+        </a>
+      </div>
+
+      <div
+        class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between"
+      >
+        <div class="flex items-center space-x-2 mr-4">
+          <div class="flex flex-col">
+            <div class="font-medium">Other Partnership</div>
+            <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+              We're open to dicsuss anything!
+            </div>
+          </div>
+        </div>
+        <a href="/partnership/other">
+          <button
+            class={false
+              ? `bg-light-orange rounded-full p-2 flex-1`
+              : `bg-light-cream rounded-full p-2 flex-1`}
+          >
+            <ArrowRight className={false ? `stroke-orange` : `stroke-black`} />
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const getUmrahVisaButton = document.getElementById("getUmrahVisaButton");
+  const agentOptionScreen = document.getElementById("agentOptionScreen");
+  const getUmrahVisaScreen = document.getElementById("getUmrahVisaScreen");
+
+  getUmrahVisaButton.addEventListener("click", () => {
+    agentOptionScreen.style.display = "none";
+    getUmrahVisaScreen.style.display = "flex";
+  });
+</script>

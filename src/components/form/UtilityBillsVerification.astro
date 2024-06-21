@@ -1,0 +1,42 @@
+---
+import Upload from "../../assets/tabler-icons/upload.astro";
+import SelectEmploymentModal from "../modal/SelectEmploymentModal.astro";
+import Contract from "../../assets/tabler-icons/contract.astro";
+import X from "../../assets/tabler-icons/x.astro";
+---
+
+<SelectEmploymentModal />
+<div id="contractSignForm" class="h-full flex-1 flex flex-col justify-between">
+  <div>
+    <div class="ibm-plex-mono-medium">Utility Bils</div>
+    <div class="ibm-plex-mono-regular text-sm mb-3">
+      Please upload the last month utility bill
+    </div>
+    <div class="flex flex-col space-y-3 mb-3">
+      <div
+        class="flex justify-between items-center border rounded-lg p-4 text-[.9em]"
+      >
+        <div class="flex items-center space-x-2">
+          <Contract />
+          <div class="font-medium">June-2024.pdf</div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <div>
+            File Size: <span class="font-medium">34MB</span>
+          </div>
+          <button class="p-1 aspect-square rounded-full bg-grey">
+            <X className="h-5" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <button class="flex items-center space-x-2">
+      <div
+        class="rounded-full aspect-square flex justify-center items-center bg-light-tosca p-2"
+      >
+        <Upload className="stroke-tosca h-5" />
+      </div>
+      <div class="text-[.9em] text-tosca">Add another bank statement.</div>
+    </button>
+  </div>
+</div>

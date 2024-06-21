@@ -1,0 +1,115 @@
+---
+import ChevronDown from "../../assets/tabler-icons/chevron-down.astro";
+import Upload from "../../assets/tabler-icons/upload.astro";
+import Mail from "../../assets/tabler-icons/mail.astro";
+import User from "../../assets/tabler-icons/user.astro";
+import SelectEmploymentModal from "../modal/SelectEmploymentModal.astro";
+import SelectEmploymentVerificationModal from "../modal/SelectEmploymentVerificationModal.astro";
+---
+
+<div id="contractSignForm" class="h-full flex-1 flex flex-col mb-24">
+  <SelectEmploymentModal />
+  <SelectEmploymentVerificationModal />
+  <div class="ibm-plex-mono-medium">Employment Verification</div>
+  <div class="ibm-plex-mono-regular text-sm mb-8">
+    Please verify your employment by filling these form.
+  </div>
+  <div class="flex flex-col space-y-4">
+    <div>
+      <div class="ibm-plex-mono-medium text-[.9em] mb-2">
+        Select Employment Type
+      </div>
+      <button
+        id="selectEmploymentButton"
+        class="w-full h-14 text-left px-4 border rounded-lg text-[.9em] flex items-center justify-between"
+      >
+        <div class="flex space-x-2">
+          <div>Employment Type</div>
+        </div>
+        <ChevronDown />
+      </button>
+    </div>
+    <div>
+      <div class="ibm-plex-mono-medium text-[.9em] mb-2">
+        Select Verification Method
+      </div>
+      <button
+        id="selectEmploymentVerificationButton"
+        class="w-full h-14 text-left px-4 border rounded-lg text-[.9em] flex items-center justify-between"
+      >
+        <div class="flex space-x-2">
+          <div>Salary Slip</div>
+        </div>
+        <ChevronDown />
+      </button>
+    </div>
+
+    <div>
+      <div class="ibm-plex-mono-medium text-[.9em]">Salary Slip</div>
+      <div class="ibm-plex-mono-regular text-sm mb-3">
+        Please upload your proof of salary.
+      </div>
+      <button class="w-full p-4 border rounded-lg flex flex-col items-center">
+        <div class="bg-light-tosca p-2 rounded-lg mb-2">
+          <Upload className="stroke-tosca" />
+        </div>
+        <div class="text-[.9em] font-medium">Upload Your Attachment</div>
+        <div class="text-[.8em] font-light">Click here to upload.</div>
+      </button>
+    </div>
+    <div>
+      <div class="ibm-plex-mono-medium text-[.9em]">Tax Document</div>
+      <div class="ibm-plex-mono-regular text-sm mb-3">
+        Please upload your tax documents.
+      </div>
+      <button class="w-full p-4 border rounded-lg flex flex-col items-center">
+        <div class="bg-light-tosca p-2 rounded-lg mb-2">
+          <Upload className="stroke-tosca" />
+        </div>
+        <div class="text-[.9em] font-medium">Upload Your Attachment</div>
+        <div class="text-[.8em] font-light">Click here to upload.</div>
+      </button>
+    </div>
+    <div>
+      <div class="ibm-plex-mono-medium text-[.9em]">Work Email</div>
+      <div class="ibm-plex-mono-regular text-sm mb-3">
+        Please verify your work email.
+      </div>
+      <div
+        class="w-full h-14 text-left px-4 border rounded-lg text-[.9em] flex items-center space-x-2"
+      >
+        <Mail />
+        <input
+          type="email"
+          id="email"
+          class="formInput w-full h-full rounded-lg focus:outline-none"
+          placeholder="Work Email"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const selectEmploymentButton = document.querySelector(
+    "#selectEmploymentButton"
+  );
+  const selectEmploymentModal = document.getElementById(
+    "selectEmploymentModal"
+  );
+
+  selectEmploymentButton.addEventListener("click", () => {
+    selectEmploymentModal.style.display = "flex";
+  });
+
+  const selectEmploymentVerificationButton = document.querySelector(
+    "#selectEmploymentVerificationButton"
+  );
+  const selectEmploymentVerificationModal = document.getElementById(
+    "selectEmploymentVerificationModal"
+  );
+
+  selectEmploymentVerificationButton.addEventListener("click", () => {
+    selectEmploymentVerificationModal.style.display = "flex";
+  });
+</script>

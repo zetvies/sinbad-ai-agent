@@ -1,0 +1,21 @@
+---
+const { text } = Astro.props;
+---
+
+<div
+  class={`${text ? "block" : "hidden"} absolute bottom-4 left-auto right-auto z-10 bg-white py-2 px-4 rounded-lg montserrat`}
+>
+  <svg
+    class="absolute bottom-[85%]"
+    width="32"
+    height="21"
+    viewBox="0 0 32 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M25.8423 4.44478L11.5015 13.6319C8.13714 15.7871 9.6637 21 13.6592 21H28C30.2091 21 32 19.2091 32 17V7.81291C32 4.6511 28.5046 2.73921 25.8423 4.44478Z"
+      fill="white"></path>
+  </svg>
+  {text}
+</div>

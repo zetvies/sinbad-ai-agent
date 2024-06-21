@@ -1,0 +1,75 @@
+---
+// Components
+import PersonalDetailsForm from "../form/PersonalDetails.astro";
+import User from "../../assets/tabler-icons/user.astro";
+import VisaDetailsForm from "../form/VisaDetailsForm.astro";
+import ContractForm from "../form/ContractForm.astro";
+import ContractSignForm from "../form/ContractSignForm.astro";
+import VerificationForm from "../form/VerificationForm.astro";
+import EmploymentVerification from "../form/EmploymentVerification.astro";
+import IncomeVerification from "../form/IncomeVerification.astro";
+import IdentityVerification from "../form/IdentityVerification.astro";
+import TravelHistoryVerification from "../form/TravelHistoryVerification.astro";
+import DebitCreditCardVerification from "../form/DebitCreditCardVerification.astro";
+import UtilityBillsVerification from "../form/UtilityBillsVerification.astro";
+import SupportingDocumentVerification from "../form/SupportingDocumentVerification.astro";
+import ArrowRight from "../../assets/tabler-icons/arrow-right.astro";
+const isVerified = true;
+---
+
+<div id="getUmrahVisaScreen" class="flex-1 h-screen w-full flex flex-col mb-24">
+  <!-- <div class="flex items-center w-full space-x-4 mb-4">
+    <div
+      class="min-w-14 min-h-14 flex items-center justify-center bg-grey rounded-lg"
+    >
+      <User className="h-10" />
+    </div>
+    <div class="w-full flex flex-col space-y-1">
+      <div class="text-[.9em]">
+        Step 1: <span class="font-medium">Personal Details</span>
+      </div>
+      <div class="flex space-x-1 w-full">
+        <div id="1" class="bg-green h-3 flex-1 rounded-full"></div>
+        <div id="2" class="bg-light-green h-3 flex-1 rounded-full"></div>
+        <div id="3" class="bg-light-green h-3 flex-1 rounded-full"></div>
+        <div id="4" class="bg-light-green h-3 flex-1 rounded-full"></div>
+        <div id="5" class="bg-light-green h-3 flex-1 rounded-full"></div>
+      </div>
+    </div>
+  </div> -->
+  <div class="flex-1 flex flex-col">
+    <!-- <PersonalDetailsForm /> -->
+    <!-- <VisaDetailsForm /> -->
+    <!-- <ContractForm /> -->
+    <!-- <ContractSignForm /> -->
+    <!-- <VerificationForm /> -->
+
+    <EmploymentVerification />
+    <!-- <IncomeVerification /> -->
+    <!-- <IdentityVerification /> -->
+    <!-- <TravelHistoryVerification /> -->
+    <!-- <DebitCreditCardVerification /> -->
+    <!-- <UtilityBillsVerification /> -->
+    <!-- <SupportingDocumentVerification /> -->
+  </div>
+
+  <div
+    class="absolute bottom-0 left-0 flex items-center w-full px-4 h-20 space-x-2 bg-white"
+  >
+    <button
+      id="prevButton"
+      class="flex-1 bg-grey rounded-full flex font-medium text-gray-400 justify-center items-center p-3"
+    >
+      Back
+    </button>
+    <button
+      id="nextButton"
+      disabled={!isVerified}
+      class={isVerified
+        ? `flex-1 bg-dark-green rounded-full flex font-medium text-white border-2 border-white justify-center items-center p-3`
+        : `flex-1 bg-grey rounded-full flex font-medium text-gray-400 border-2 border-gray-300 justify-center items-center p-3`}
+    >
+      Next
+    </button>
+  </div>
+</div>

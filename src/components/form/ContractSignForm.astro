@@ -1,0 +1,39 @@
+---
+import ArrowRightIcon from "../../assets/tabler-icons/arrow-right.astro";
+import CheckIcon from "../../assets/tabler-icons/check.astro";
+import ContractIcon from "../../assets/tabler-icons/contract.astro";
+import DownloadIcon from "../../assets/tabler-icons/download.astro";
+---
+
+<div id="contractSignForm" class="h-full flex-1 flex flex-col justify-between">
+  <div
+    class="w-full text-left px-4 py-2 border rounded-lg text-[.9em] flex items-center justify-between min-h-24"
+  >
+    <div class="flex items-center space-x-2">
+      <ContractIcon />
+      <div class="flex flex-col">
+        <div
+          class="px-2 py-1 bg-light-tosca text-tosca font-semibold text-[.8em] w-fit rounded-full"
+        >
+          Signed
+        </div>
+        <div class="font-medium">Contract Policies</div>
+        <div class="text-[rgb(0,0,0,.4)] text-[.9em]">
+          Click here to read contract
+        </div>
+      </div>
+    </div>
+    <div class="bg-light-tosca rounded-full p-2">
+      <CheckIcon className="stroke-tosca" />
+    </div>
+    <button class="bg-grey rounded-full p-2 hidden">
+      <ArrowRightIcon />
+    </button>
+  </div>
+  <button
+    class="w-full py-2 space-x-2 flex justify-center items-center font-medium text-dark-green border-2 border-dark-green rounded-full"
+  >
+    <div class="text-[.9em]">View Signed Contract</div>
+    <DownloadIcon />
+  </button>
+</div>

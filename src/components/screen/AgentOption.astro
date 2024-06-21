@@ -1,0 +1,49 @@
+---
+// Icons
+import WorldIcon from "../../assets/tabler-icons/world.astro";
+import CalculatorIcon from "../../assets/tabler-icons/calculator.astro";
+import HeartHandshakeIcon from "../../assets/tabler-icons/heart-handshake.astro";
+---
+
+<div
+  id="agentOptionScreen"
+  class="flex-1 w-full flex flex-col justify-between pb-10"
+>
+  <div class="flex flex-col">
+    <div class="ibm-plex-mono-medium mb-3">Select Option</div>
+    <div class="flex flex-col space-y-3">
+      <a href="/agent/get-umrah-visa/1">
+        <button
+          id="getUmrahVisaButton"
+          class="w-full h-14 text-left px-4 border rounded-lg text-[.9em] flex items-center space-x-2 hover:bg-white-100"
+        >
+          <WorldIcon />
+          <div>Get Umrah Visa</div>
+        </button>
+      </a>
+      <button
+        id="calculateProbability"
+        class="w-full h-14 text-left px-4 border rounded-lg text-[.9em] flex items-center space-x-2 hover:bg-white-100"
+      >
+        <CalculatorIcon />
+        <div>Calculate Probability of Getting Visa</div>
+      </button>
+    </div>
+  </div>
+
+  <a href="/partnership-hub">
+    <div class="text-dark-green underline ibm-plex-mono-semibold text-[.9em]">
+      Want to partner with us?
+    </div>
+  </a>
+</div>
+<script>
+  const getUmrahVisaButton = document.getElementById("getUmrahVisaButton");
+  const agentOptionScreen = document.getElementById("agentOptionScreen");
+  const getUmrahVisaScreen = document.getElementById("getUmrahVisaScreen");
+
+  getUmrahVisaButton.addEventListener("click", () => {
+    agentOptionScreen.style.display = "none";
+    getUmrahVisaScreen.style.display = "flex";
+  });
+</script>
