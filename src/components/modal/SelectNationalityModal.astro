@@ -875,67 +875,59 @@ const countryList = [
 
 <div
   id="selectNationalityModal"
-  class={`hidden absolute top-0 left-0 w-full min-h-screen z-50`}
+  class={`hidden absolute bottom-0 left-0 w-full h-[65svh] z-50 bg-white flex-col p-4`}
 >
-  <button
-    id="closeModalButton"
-    class="absolute top-0 left-0 w-full h-full z-11 bg-transparent-black"
-  ></button>
-  <div
-    class="absolute bottom-0 left-0 w-full min-h-[50svh] h-fit p-4 z-12 bg-white"
-  >
-    <div class="flex items-center justify-between mb-3">
-      <div class="ibm-plex-mono-semibold">Select Nationality</div>
-      <button id="closeModalButton" class="p-1 z-12 rounded-full bg-grey">
-        <XIcon className="h-5" />
-      </button>
-    </div>
-    <div class="flex flex-col">
-      <form class="w-full">
-        <div class="relative">
-          <div
-            class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
-          >
-            <SearchIcon className="h-5" />
-          </div>
-          <input
-            type="search"
-            id="default-search"
-            class="block w-full px-4 py-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none"
-            placeholder="Search your country here.."
-          />
-        </div>
-      </form>
-      <div class="flex-1 my-2 min-h-[40svh] max-h-[40svh] overflow-auto">
-        {
-          countryList.map((lang) => (
-            <button
-              id={lang.english_name}
-              class="selectNationalityButton flex items-center space-x-2 w-full p-2 hover:bg-white-100"
-            >
-              <div
-                class={`flag-${lang.country_code} w-7 h-fit flex items-center emoji text-[1.1em]`}
-              />
-              <div class="ibm-plex-mono-regular text-[.9em]">{lang.name}</div>
-
-              <CircleCheckIcon
-                id={`nationalityCheck-${lang.english_name}`}
-                className={`nationalityCheck hidden h-5 fill-dark-green`}
-              />
-            </button>
-          ))
-        }
-      </div>
-      <a href="/agent">
-        <button
-          disabled
-          id="submitNationalityButton"
-          class="w-full bg-gray-100 p-2 rounded-full text-gray-400 text-[.9em]"
+  <div class="flex items-center justify-between mb-3">
+    <div class="ibm-plex-mono-semibold">Select Nationality</div>
+    <button id="closeModalButton" class="p-1 z-12 rounded-full bg-grey">
+      <XIcon className="h-5" />
+    </button>
+  </div>
+  <div class="flex flex-col">
+    <form class="w-full">
+      <div class="relative">
+        <div
+          class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
         >
-          Select
-        </button>
-      </a>
+          <SearchIcon className="h-5" />
+        </div>
+        <input
+          type="search"
+          id="default-search"
+          class="block w-full px-4 py-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:outline-none"
+          placeholder="Search your country here.."
+        />
+      </div>
+    </form>
+    <div class="flex-1 my-2 min-h-[40svh] max-h-[40svh] overflow-auto">
+      {
+        countryList.map((lang) => (
+          <button
+            id={lang.english_name}
+            class="selectNationalityButton flex items-center space-x-2 w-full p-2 hover:bg-white-100"
+          >
+            <div
+              class={`flag-${lang.country_code} w-7 h-fit flex items-center emoji text-[1.1em]`}
+            />
+            <div class="ibm-plex-mono-regular text-[.9em]">{lang.name}</div>
+
+            <CircleCheckIcon
+              id={`nationalityCheck-${lang.english_name}`}
+              className={`nationalityCheck hidden h-5 fill-dark-green`}
+            />
+          </button>
+        ))
+      }
     </div>
+    <a href="/agent">
+      <button
+        disabled
+        id="submitNationalityButton"
+        class="w-full bg-gray-100 p-2 rounded-full text-gray-400 text-[.9em]"
+      >
+        Select
+      </button>
+    </a>
   </div>
 </div>
 <script>

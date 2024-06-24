@@ -1,0 +1,50 @@
+---
+// Components
+import Layout from "../layouts/Layout.astro";
+import AIAgent from "../components/AIAgent.astro";
+import AgentOptionScreen from "../components/screen/AgentOption.astro";
+import SelectLanguageModal from "../components/modal/SelectLanguageModal.astro";
+import AgentLayout from "../layouts/AgentLayout.astro";
+import Check from "../assets/tabler-icons/check.astro";
+---
+
+<Layout title="AI Agent">
+  <AgentLayout
+    hideMicrophone
+    next="/"
+    prev="/"
+    nextText="Share Status"
+    prevText="Back to Main Menu"
+  >
+    <div
+      class="font-semibold flex flex-col justify-center items-center w-full h-[50vh]"
+    >
+      <div class="flex items-center justify-center space-x-1 mb-4">
+        <div
+          class="p-1 bg-light-tosca text-tosca font-semibold text-[.8em] flex items-center justify-center w-fit rounded-full aspect-square"
+        >
+          <Check class="stroke-tosca h-4" />
+        </div>
+        <div>Accepted</div>
+      </div>
+      <div class="text-[.9em] text-center max-w-[80%]">
+        We're happy to inform you that your Application number <span
+          class="text-dark-green">#1213232</span
+        > has been accepted.
+      </div>
+    </div>
+  </AgentLayout>
+</Layout>
+
+<script>
+  const selectLanguageButton = document.querySelector("#selectLanguageButton");
+  const selectLanguageModal = document.getElementById("selectLanguageModal");
+
+  const step = 1;
+  const nextButton = document.querySelector("#nextButton");
+  const prevButton = document.querySelector("#prevButton");
+
+  selectLanguageButton.addEventListener("click", () => {
+    selectLanguageModal.style.display = "flex";
+  });
+</script>

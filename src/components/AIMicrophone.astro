@@ -1,0 +1,99 @@
+---
+import Microphone from "../assets/tabler-icons/microphone.astro";
+import PlayerRecord from "../assets/tabler-icons/player-record.astro";
+import Reload from "../assets/tabler-icons/reload.astro";
+import Send from "../assets/tabler-icons/send.astro";
+
+const { hideMicrophone } = Astro.props;
+---
+
+<div
+  id="microphoneModal"
+  class="hidden h-[65svh] w-full absolute bottom-0 left-0 z-[100]"
+>
+  <button
+    id="microphoneCloseButton"
+    class="h-full w-full absolute top-0 left-0 bg-[rgb(255,255,255,.6)]"
+  >
+  </button>
+  <div
+    class="absolute bottom-16 z-5 bg-white border p-3 pb-20 pr-16 m-4 rounded-lg text-[.9em] ibm-plex-mono-regular z-[5]"
+  >
+    My name is Firas AlMohasen and I am an employee for product design, my email
+    is firas@firas.com and I work for XYZ company.
+  </div>
+</div>
+<button
+  id="microphoneButton"
+  class={`${hideMicrophone ? "hidden" : "absolute"} bottom-24 right-10 z-[200] bg-white border-2 border-dark-green rounded-full p-3`}
+>
+  <Microphone className="stroke-dark-green h-full w-full" />
+</button>
+<button
+  id="microphoneRecordButton"
+  class="hidden absolute bottom-24 right-10 z-[200] bg-grey border-2 border-transparent rounded-full p-3"
+>
+  <PlayerRecord className="fill-red-500 h-full w-full" />
+</button>
+
+<div
+  id="microphonePlayReloadContainer"
+  class="hidden space-x-2 absolute bottom-24 right-10 z-[200]"
+>
+  <button
+    id="microphoneReloadButton"
+    class="bg-grey border-2 border-transparent rounded-full p-3"
+  >
+    <Reload className=" h-full w-full" />
+  </button>
+  <button
+    id="microphoneSendButton"
+    class="bg-grey border-2 border-transparent rounded-full p-3"
+  >
+    <Send className="h-full w-full" />
+  </button>
+</div>
+
+<script>
+  const microphoneButton = document.getElementById("microphoneButton");
+  const microphoneModal = document.getElementById("microphoneModal");
+  const microphoneRecordButton = document.getElementById(
+    "microphoneRecordButton"
+  );
+  const microphonePlayReloadContainer = document.getElementById(
+    "microphonePlayReloadContainer"
+  );
+  const microphoneReloadButton = document.getElementById(
+    "microphoneReloadButton"
+  );
+  const microphoneSendButton = document.getElementById("microphoneSendButton");
+  const microphoneCloseButton = document.getElementById(
+    "microphoneCloseButton"
+  );
+
+  microphoneButton.addEventListener("click", () => {
+    microphoneModal.style.display = "flex";
+    microphoneRecordButton.style.display = "flex";
+    microphoneButton.style.display = "none";
+  });
+  microphoneCloseButton.addEventListener("click", () => {
+    microphoneModal.style.display = "none";
+    microphoneRecordButton.style.display = "none";
+    microphonePlayReloadContainer.style.display = "none";
+    microphoneButton.style.display = "flex";
+  });
+
+  microphoneRecordButton.addEventListener("click", () => {
+    microphoneRecordButton.style.display = "none";
+    microphonePlayReloadContainer.style.display = "flex";
+  });
+  microphoneSendButton.addEventListener("click", () => {
+    microphoneModal.style.display = "none";
+    microphonePlayReloadContainer.style.display = "none";
+    microphoneButton.style.display = "flex";
+  });
+  microphoneReloadButton.addEventListener("click", () => {
+    microphonePlayReloadContainer.style.display = "none";
+    microphoneRecordButton.style.display = "flex";
+  });
+</script>

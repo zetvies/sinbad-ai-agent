@@ -44,7 +44,7 @@ import Photo from "../../assets/tabler-icons/photo.astro";
         Are you traveling with your family?
       </div>
       <button
-        id="selectEmploymentButton"
+        id="selectFamilyButton"
         class="w-full h-14 text-left px-4 border rounded-lg text-[.9em] flex items-center justify-between"
       >
         <div class="flex space-x-2">
@@ -146,3 +146,12 @@ import Photo from "../../assets/tabler-icons/photo.astro";
     </button>
   </div>
 </div>
+
+<script>
+  const selectFamilyButton = document.querySelector("#selectFamilyButton");
+  const selectFamilyModal = document.getElementById("selectFamilyModal");
+
+  selectFamilyButton.addEventListener("click", () => {
+    selectFamilyModal.style.display = "flex";
+  });
+</script>

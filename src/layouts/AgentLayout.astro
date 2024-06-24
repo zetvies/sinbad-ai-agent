@@ -1,0 +1,86 @@
+---
+import MessageChatbot from "../assets/tabler-icons/message-chatbot.astro";
+import Microphone from "../assets/tabler-icons/microphone.astro";
+import AIAgent from "../components/AIAgent.astro";
+import AIMicrophone from "../components/AIMicrophone.astro";
+import SelectGenderModal from "../components/modal/SelectGenderModal.astro";
+import SelectLanguageModal from "../components/modal/SelectLanguageModal.astro";
+import SelectNationalityModal from "../components/modal/SelectNationalityModal.astro";
+import AIChatModal from "../components/modal/AIChatModal.astro";
+import SelectEmploymentModal from "../components/modal/SelectEmploymentModal.astro";
+import SelectEmploymentVerificationModal from "../components/modal/SelectEmploymentVerificationModal.astro";
+import SelectFamilyModal from "../components/modal/SelectFamilyModal.astro";
+
+const { next, prev, hideMicrophone, hideNavigation, nextText, prevText } =
+  Astro.props;
+---
+
+<AIAgent text="What brings you here today?" />
+<div class="flex space-x-2 absolute top-6 right-6">
+  <button
+    id="AIChatButton"
+    class="p-2 h-10 w-10 bg-dark-green rounded-full aspect-square flex justify-center items-center"
+  >
+    <MessageChatbot className="fill-white h-full w-full" />
+  </button>
+  <button
+    id="selectLanguageButton"
+    class="flex items-center space-x-1 px-3 py-1 bg-white rounded-full border border-dark-green hover:bg-white-100"
+  >
+    <div class={`flag-gb w-7 h-fit flex items-center emoji text-[1.1em]`}></div>
+    <div class="text-[.9em] uppercase font-medium">Eng</div>
+  </button>
+</div>
+<div class="h-[65svh] w-full flex-1 flex flex-col overflow-y-auto p-4 relative">
+  <slot />
+</div>
+<SelectLanguageModal />
+<SelectNationalityModal />
+<SelectGenderModal />
+<SelectEmploymentModal />
+<SelectEmploymentVerificationModal />
+<SelectFamilyModal />
+<AIChatModal />
+<AIMicrophone hideMicrophone={hideMicrophone} />
+<div
+  class={`${hideNavigation ? "hidden" : "absolute"} bottom-0 left-0 flex items-center w-full px-4 h-20 space-x-2 bg-white`}
+>
+  <a href={prev ? prev : "/"} class="flex-1">
+    <button
+      id="prevButton"
+      class="w-full bg-grey rounded-full flex font-medium text-gray-400 justify-center items-center p-3"
+    >
+      {prevText ? prevText : "Back"}
+    </button>
+  </a>
+
+  <a href={next ? next : "/"} class="flex-1">
+    <button
+      id="nextButton"
+      disabled={false}
+      class={true
+        ? `w-full  bg-dark-green rounded-full flex font-medium text-white border-2 border-white justify-center items-center p-3`
+        : `w-full  bg-grey rounded-full flex font-medium text-gray-400 border-2 border-gray-300 justify-center items-center p-3`}
+    >
+      {nextText ? nextText : "Next"}
+    </button>
+  </a>
+</div>
+
+<script>
+  const selectLanguageButton = document.querySelector("#selectLanguageButton");
+  const selectLanguageModal = document.getElementById("selectLanguageModal");
+  const AIChatButton = document.querySelector("#AIChatButton");
+  const AIChatModal = document.getElementById("AIChatModal");
+  AIChatButton.addEventListener("click", () => {
+    AIChatModal.style.display = "flex";
+  });
+
+  const step = 1;
+  const nextButton = document.querySelector("#nextButton");
+  const prevButton = document.querySelector("#prevButton");
+
+  selectLanguageButton.addEventListener("click", () => {
+    selectLanguageModal.style.display = "flex";
+  });
+</script>
