@@ -909,7 +909,9 @@ const countryList = [
             <div
               class={`flag-${lang.country_code} w-7 h-fit flex items-center emoji text-[1.1em]`}
             />
-            <div class="ibm-plex-mono-regular text-[.9em]">{lang.name}</div>
+            <div class="ibm-plex-mono-regular text-[.9em] text-left">
+              {lang.english_name} - {lang.name}
+            </div>
 
             <CircleCheckIcon
               id={`nationalityCheck-${lang.english_name}`}
