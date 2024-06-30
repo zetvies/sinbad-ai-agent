@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Speech"
+  ><div class="w-full h-[35svh] bg-cream flex justify-center relative">
+    <video id="AhmedAnimation" class="w-full h-full">
+      <source src="/thumbsup.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div
+      id="AIDialogContainer"
+      class={`opacity-0 transition-opacity duration-100 absolute bottom-4 left-auto right-auto z-[100] bg-white py-2 px-4 rounded-lg montserrat`}
+    >
+      <svg
+        class="absolute bottom-[85%]"
+        width="32"
+        height="21"
+        viewBox="0 0 32 21"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.8423 4.44478L11.5015 13.6319C8.13714 15.7871 9.6637 21 13.6592 21H28C30.2091 21 32 19.2091 32 17V7.81291C32 4.6511 28.5046 2.73921 25.8423 4.44478Z"
+          fill="white"></path>
+      </svg>
+      <div id="AIDialogText"></div>
+    </div>
+  </div>
+  <button
+    onclick="playVid()"
+    class="mt-10 bg-dark-green rounded-full flex font-medium text-white border-2 border-white justify-center items-center p-3"
+  >
+    Submit
+  </button>
+  <script is:inline>
+    let vid = document.getElementById("AhmedAnimation");
+
+    function playVid() {
+      vid.play();
+      document.getElementById("AIDialogContainer").style.opacity = 1;
+      document.getElementById("AIDialogText").innerText =
+        "Thank you for submitting!";
+      setTimeout(() => {
+        document.getElementById("AIDialogContainer").style.opacity = 0;
+        document.getElementById("AIDialogText").innerText = "";
+      }, 2500);
+    }
+  </script>
+  <!-- <h1>Web Speech API</h1>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <p hidden class="support">Web Speech API not supported</p> -->
+
+  <main>
+    <h2>Transcription</h2>
+    <textarea id="transcription" rows="6"></textarea>
+    <button class="border border-black p-1" id="record">Record</button>
+    <button class="border border-black p-1" id="stop">Stop</button>
+
+    <p class="invisible">
+      <label>
+        Confidence:
+        <input id="confidence" />
+      </label>
+    </p>
+
+    <p class="invisible">
+      <label for="language">Language:</label>
+      <select id="language">
+        <option value="en-US">English - United States</option>
+      </select>
+    </p>
+
+    <p class="invisible recognition-options">
+      <label>
+        <input
+          type="radio"
+          name="recognition-type"
+          value="interim"
+          checked
+        />Interim Results
+      </label>
+
+      <label>
+        <input type="radio" name="recognition-type" value="final" />Final
+      </label>
+    </p>
+
+    <!-- <h2>Log</h2> -->
+    <textarea class="invisible" id="log" rows="6"></textarea>
+    <button id="clear" class="invisible border border-black p-1">Clear</button>
+  </main>
+</Layout>
+
+<script type="module" is:inline>
+  import { renderLanguageOptions } from "../speech/languages.js";
+  import {
+    startSpeechRecognition,
+    disableSpeechRecognition,
+  } from "../speech/speech-recognition.js";
+
+  renderLanguageOptions();
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (SpeechRecognition) {
+    startSpeechRecognition(SpeechRecognition);
+  } else {
+    disableSpeechRecognition();
+  }
+</script>
+
+<!--
+      Google tag (gtag.js)
+    -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = (...args) => {
+    dataLayer.push(args);
+  };
+  gtag("js", new Date());
+  gtag("config", "G-2NYQESPF9Y");
+</script>
+
+<script
+  data-href="https://github.com/remarkablemark/web-speech-api-demo"
+  data-target="_blank"
+  async
+  defer></script>
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  textarea {
+    width: 100%;
+    border: 1px solid black;
+  }
+
+  input {
+    border: 1px solid black;
+  }
+</style>
